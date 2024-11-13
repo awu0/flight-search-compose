@@ -6,11 +6,11 @@ import android.content.Context
  * App container for dependency injection.
  */
 interface AppContainer {
-    val flightRepository: FlightRepository
+    val airportRepository: AirportRepository
 }
 
 class AppDataContainer(private val context: Context) : AppContainer {
-    override val flightRepository: FlightRepository by lazy {
-        OfflineFlightRepository(FlightDatabase.getDatabase(context).flightDao())
+    override val airportRepository: AirportRepository by lazy {
+        OfflineAirportRepository(AirportDatabase.getDatabase(context).airportDao())
     }
 }
