@@ -34,8 +34,9 @@ fun HomeScreen(
         modifier = Modifier.fillMaxWidth().padding(16.dp)
     ) {
         OutlinedTextField(
-            value = viewModel.searchQuery,
+            value = viewModel.searchQueryFlow.collectAsState().value,
             onValueChange = { viewModel.updateSearchQuery(it) },
+            singleLine = true,
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Search,
